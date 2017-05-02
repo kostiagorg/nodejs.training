@@ -1,0 +1,12 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "description": "Tme main purpose is education only",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Kanstantsin Yermalovich",
+  "license": "ISC"
+}
