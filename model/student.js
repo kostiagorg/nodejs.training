@@ -1,3 +1,6 @@
+var util = require("util");
+var Event = require("events");
+
 function Student(name, sname, group) {
    this.name = name;
    this.sname = sname;
@@ -18,6 +21,30 @@ Student.prototype.saySomething = function(msg) {
 };
 
 module.exports = Student;
+
+//ingerit EventEmitter
+util.inherits(Student, Event);
+
+global.eventHello = "hello";
+
+Student.prototype.callYourSelf = function(data) {
+   
+   //event
+   this.emit(eventHello, data);
+};
+
+var user = new Student("Banderlogin", "Bachkivski", 620621);
+
+//add event listener
+user.on(eventHello, (data) => {
+   console.log("EVENT in action: " + eventHello);
+   user.saySomething(data);   
+});
+
+//let's send event
+user.callYourSelf("Programmer");
+
+
 
 
 
